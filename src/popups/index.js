@@ -1,39 +1,39 @@
-// import { h, render } from "vue"
-// import popList from "@/popups/popList.vue"
+import { h, render } from "vue"
+import popMsg from "@/popups/popMsg.vue"
 
-// let components = {
-// 	popList,
-// }
+let components = {
+	popMsg,
+}
 
-// // 傳入實例
-// let Vue = null
+// 傳入實例
+let Vue = null
 
-// export function createPopup(componentName, options = {}) {
-// 	let div = document.createElement("div")
-// 	let vm = h(eval(componentName), options)
+export function createPopup(componentName, options = {}) {
+	let div = document.createElement("div")
+	let vm = h(components[componentName], options)
 
-// 	// 同步上下文
-// 	vm.appContext = Vue._context
-// 	render(vm, div)
+	// 同步上下文
+	vm.appContext = Vue._context
+	render(vm, div)
 
-// 	// 預設方法
-// 	vm.component.ctx.remove = () => {
-// 		render(null, div)
-// 		vm = null
-// 	}
-// 	vm.component.ctx.showLogText = () => {
-// 		return "showLogText()"
-// 	}
+	// 預設方法
+	vm.component.ctx.remove = () => {
+		render(null, div)
+		vm = null
+	}
+	vm.component.ctx.showLogText = () => {
+		return "showLogText()"
+	}
 
-// 	return vm.component.proxy
-// }
+	return vm.component.proxy
+}
 
-// export default {
-// 	install(app) {
-// 		Vue = app
-// 		Object.keys(components).forEach((key) => {
-// 			Vue.component(key, components[key])
-// 		})
-// 		Vue.provide("popup", createPopup)
-// 	},
-// }
+export default {
+	install(app) {
+		Vue = app
+		Object.keys(components).forEach((key) => {
+			Vue.component(key, components[key])
+		})
+		Vue.provide("popup", createPopup)
+	},
+}

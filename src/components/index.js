@@ -1,5 +1,5 @@
-// import list1 from "./atoms/list1.vue";
+import HelloWorld from "./templates/HelloWorld.vue";
 
-// export default Object.assign({
-//     list1,
-// });
+export default Object.assign({
+    HelloWorld,
+});

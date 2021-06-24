@@ -1,0 +1,15 @@
+// 取得色票 HEX
+@function color($color, $opacity: 1) {
+	$colorHEX: map-get($colors, $color);
+	$opc: alpha($colorHEX) * $opacity;
+
+	@return rgba($colorHEX, $opc);
+}
+
+// 取得字型
+@function font-size($size) {
+	@return map-get($fonts-size, $size);
+}
+@function font-weight($weight) {
+	@return map-get($fonts-weight, $weight);
+}

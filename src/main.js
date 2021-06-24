@@ -1,16 +1,19 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-// import components from "@/components"
+import components from "@/components"
+import datas from "@/datas"
 import "@/styles/index.scss"
-// import { router } from "@/router"
-// import popup from "@/popups"
+import { router } from "@/router"
+import popup from "@/popups"
 
 const Vue = createApp(App);
 
-// Object.keys(components).forEach((key) => {
-//     Vue.component(key, components[key])
-// });
+Vue.provide("datas", datas)
 
-// Vue.use(popup)
-// Vue.use(router)
+Object.keys(components).forEach((key) => {
+    Vue.component(key, components[key])
+});
+
+Vue.use(router)
+Vue.use(popup)
 Vue.mount('#app')
