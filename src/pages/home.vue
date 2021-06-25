@@ -2,6 +2,13 @@
 img(alt="Vue logo", src="@/assets/icons/logo.png")
 HelloWorld(msg="Hello Vue 3 + Vite")
 p {{ temp.name }}
+
+hr
+router-link(:to="{ name: 'profile' }", custom, v-slot="{ navigate }")
+	button(role="link", @click="navigate") Profile Page
+
+router-link(:to="{ name: 'projects' }", custom, v-slot="{ navigate }")
+	button(role="link", @click="navigate") Projects Page
 </template>
 
 <script setup>

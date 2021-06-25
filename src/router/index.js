@@ -3,13 +3,24 @@ import { createRouter, createWebHistory } from "vue-router"
 import home from "@/pages/home.vue"
 
 export const router = createRouter({
-    history: createWebHistory(import.meta.env.VITE_PROJECT_NAME),
-    routes: [
-        {
-            path: "/",
-            component: () => import('@/pages/home.vue'),
-        }
-    ]
+	history: createWebHistory(import.meta.env.VITE_PROJECT_NAME),
+	routes: [
+		{
+			path: "/",
+			name: "home",
+			component: () => import("@/pages/home.vue"),
+		},
+		{
+			path: "/profile",
+			name: "profile",
+			component: () => import("@/pages/profile.vue"),
+		},
+		{
+			path: "/projects",
+			name: "projects",
+			component: () => import("@/pages/projects.vue"),
+		},
+	],
 })
 
 // router.beforeEach((to, from, next) => {
