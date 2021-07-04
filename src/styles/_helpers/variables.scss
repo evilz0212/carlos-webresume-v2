@@ -2,12 +2,19 @@
 // 以情境定義顏色
 $colors: (
 	// basic
-	"basic-white": #ffffff,
-	"basic-black": #1e1f22,
-	"basic-black-light": #292b2d,
-	"basic-gray": #c4c4c4,
-	"basic-gray-dark": #7c7c7c,
-	"basic-success": #6ee27a,
-	"basic-error": #ff8181,
-	"basic-warning": #fbd75e
+	"basic_white": #ffffff,
+	"basic_black": #1e1f22,
+	"basic_black_light": #292b2d,
+	"basic_gray": #c4c4c4,
+	"basic_gray_dark": #7c7c7c,
+	"basic_success": #6ee27a,
+	"basic_error": #ff8181,
+	"basic_warning": #fbd75e
+);
+
+$positions: (
+	"header_hight": 100px,
+	"emptyCard_hight": 70vh,
+	"sidebar_margin_top": 15vh,
+	// sidebar_margin_top = (100vh - emptyCard_hight) / 2
 );

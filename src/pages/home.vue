@@ -1,29 +1,31 @@
 <template lang="pug">
-img(alt="Vue logo", src="@/assets/icons/logo.png")
-HelloWorld(msg="Hello Vue 3 + Vite")
-p {{ temp.name }}
+VueCanvas
+SideBar
 
-hr
-router-link(:to="{ name: 'profile' }", custom, v-slot="{ navigate }")
-	button(role="link", @click="navigate") Profile Page
+.EmptyCard
+	img(alt="Vue logo", src="@/assets/icons/logo.png")
+	p {{ profile.name }}
 
-router-link(:to="{ name: 'projects' }", custom, v-slot="{ navigate }")
-	button(role="link", @click="navigate") Projects Page
+	router-link(:to="{ name: 'profile' }", custom, v-slot="{ navigate }")
+		button(role="link", @click="navigate") Profile Page
+
+	router-link(:to="{ name: 'projects' }", custom, v-slot="{ navigate }")
+		button(role="link", @click="navigate") Projects Page
 </template>
 
 <script setup>
 import { defineProps, reactive, inject } from "vue";
-const { temp } = inject("datas");
+const { profile } = inject("datas");
 </script>
 
 <style lang="scss">
-#app {
-	font-family: Avenir, Helvetica, Arial, sans-serif;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	text-align: center;
-	color: #2c3e50;
-	margin-top: 60px;
-	position: relative;
+.EmptyCard {
+	position: fixed;
+	left: 0;
+	transform: translate((100vw * 0.618 * 0.5 * 0.5), pos(sidebar_margin_top));
+	@include size(521px, pos(emptyCard_hight));
+
+	@include flex(c, c, col);
+	background-color: rgba(212, 140, 140, 0.171);
 }
 </style>

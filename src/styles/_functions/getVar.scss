@@ -13,3 +13,8 @@
 @function font-weight($weight) {
 	@return map-get($fonts-weight, $weight);
 }
+
+// 取得定位值
+@function pos($type) {
+	@return map-get($positions, $type);
+}

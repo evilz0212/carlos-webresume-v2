@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router"
 
-import home from "@/pages/home.vue"
+import ContentPage from "@/components/templates/ContentPage.vue"
 
 export const router = createRouter({
 	history: createWebHistory(import.meta.env.VITE_PROJECT_NAME),
@@ -12,13 +12,31 @@ export const router = createRouter({
 		},
 		{
 			path: "/profile",
-			name: "profile",
-			component: () => import("@/pages/profile.vue"),
+			component: ContentPage,
+			children: [
+				{
+					path: "",
+					name: "profile",
+					component: () => import("@/pages/profile.vue"),
+				},
+			],
 		},
 		{
 			path: "/projects",
-			name: "projects",
-			component: () => import("@/pages/projects.vue"),
+			component: ContentPage,
+			children: [
+				{
+					path: "",
+					name: "projects",
+					component: () => import("@/pages/projects.vue"),
+				},
+			],
+		},
+		{
+			// 錯誤路徑
+			path: "/:pathMatch(.*)*",
+			name: "not-found",
+			redirect: "/",
 		},
 	],
 })
