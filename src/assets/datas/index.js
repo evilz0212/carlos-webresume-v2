@@ -5,7 +5,7 @@ import experience from "./experience.json"
 import skills from "./skills.json"
 
 import projects from "./projects.json"
-import exercise from "./exercise.json"
+import exercises from "./exercises.json"
 
 export default {
 	profile,
@@ -15,5 +15,5 @@ export default {
 	skills,
 
 	projects,
-	exercise,
+	exercises,
 }

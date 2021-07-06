@@ -1,8 +1,8 @@
 import { h, render } from "vue"
-import popMsg from "@/popups/popMsg.vue"
+import popCard from "@/popups/popCard.vue"
 
 let components = {
-	popMsg,
+	popCard,
 }
 
 // 傳入實例

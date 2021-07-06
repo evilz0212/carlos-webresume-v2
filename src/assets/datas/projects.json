@@ -1,1 +1,93 @@
-{}
+[
+	{
+		"name": "ISAC.tw",
+		"picture": "/pictures/ISACtw.png",
+		"author": "ArcRan.Inc",
+		"link": "http://demo.com",
+		"overview": "網紅資安保鑣服務平台",
+		"target_List": [
+			{
+				"mission": "專案資訊彙整與切版",
+				"description": [
+					"各項功能規格表、流程圖、網站地圖、線框稿繪製",
+					"設計稿 UIUX 及 RWD 協作",
+					"前端切版及功能串接"
+				]
+			},
+			{
+				"mission": "後端專案開發",
+				"description": ["後端功能實作", "資料庫欄位新增修改", "部署腳本編寫"]
+			},
+			{
+				"mission": "平台部署維護",
+				"description": ["網頁伺服器設定 (SSL, Proxy, NXLog, TLS, clamav)", "資安漏洞修正"]
+			}
+		],
+		"detail_List": [
+			{
+				"task": "改善團隊合作流程",
+				"description": [
+					"建立團隊筆記 (知識庫、同步更新資訊、相關資源)",
+					"需求確認階段建議 (使用者故事地圖、規格表、流程圖)"
+				]
+			},
+			{
+				"task": "參與設計討論",
+				"description": ["UIUX 元件選用、資訊呈現及操作動線研議", "RWD 版型樣式建議"]
+			}
+		]
+	},
+	{
+		"name": "KISS",
+		"picture": "/pictures/KISS.png",
+		"author": "ArcRan.Inc",
+		"link": "http://demo.com",
+		"overview": "資安解題社群平台",
+		"target_List": [
+			{
+				"mission": "前端專案開發 ",
+				"description": ["專案建置、功能與組件規劃", "API 規格制定", "Docker 設定"]
+			},
+			{
+				"mission": "平台部署維護",
+				"description": ["API 後端串接測試", "前端版本管理與部署"]
+			}
+		],
+		"detail_List": [
+			{
+				"task": "改善設計流程",
+				"description": [
+					"與設計配合採用原子設計模式，分離共用組件與共用樣式",
+					"擬定新需求模板，規格及流程圖等資訊結構"
+				]
+			},
+			{
+				"task": "參與設計討論",
+				"description": ["UIUX 元件選用、資訊呈現及操作動線研議", "RWD 版型樣式建議"]
+			}
+		]
+	},
+	{
+		"name": "ArcRan Web",
+		"picture": "/pictures/ArcRanWeb.png",
+		"author": "ArcRan.Inc",
+		"link": "http://demo.com",
+		"overview": "公司入口網站，以及各項產品形象頁",
+		"target_List": [
+			{
+				"mission": "形象頁切版",
+				"description": ["各頁面及電子信切版、RWD 調整", "嵌入檔案及連結"]
+			},
+			{
+				"mission": "平台部署維護",
+				"description": ["網頁伺服器設定 (SSL, Proxy, NXLog, TLS, clamav)"]
+			}
+		],
+		"detail_List": [
+			{
+				"task": "更新維護",
+				"description": ["相關資訊、連結及檔案更新", "主機與伺服器運行狀態維護"]
+			}
+		]
+	}
+]

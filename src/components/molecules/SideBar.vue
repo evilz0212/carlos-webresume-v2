@@ -1,20 +1,15 @@
 <template lang='pug'>
 .sideBar
-	p SideBar
+	//- // TODO: 資源更新 - 連結 & CV檔案
+	p Mail {{ profile.link_Email }}
+	p IG {{ profile.link_IG }}
+	p GitHub {{ profile.link_GitHub }}
+	p CV {{ profile.link_CV }}
 </template>
 
 <script setup lang='ts'>
-import { ref, reactive, computed, defineProps, inject, onMounted } from "vue";
-// import { useStore } from 'vuex';
-// import { useRouter, useRoute } from 'vue-router';
-// import { dateFormat } from '@/plugins';
-// const services: Services = inject('services');
-// const api: any = inject('api');
-// const store = useStore();
-// const router = useRouter();
-// const props = defineProps({});
-
-onMounted(() => {});
+import { inject } from "vue";
+const { profile } = inject("datas");
 </script>
 
 <style lang='scss' scoped>

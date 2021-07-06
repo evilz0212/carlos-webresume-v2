@@ -1,10 +1,12 @@
 <template lang="pug">
-VueCanvas
+//- VueCanvas
 SideBar
 
 .EmptyCard
+	//- // TODO: 資源更新 - Logo
 	img(alt="Vue logo", src="@/assets/icons/logo.png")
 	p {{ profile.name }}
+	p {{ profile.slogan }}
 
 	router-link(:to="{ name: 'profile' }", custom, v-slot="{ navigate }")
 		button(role="link", @click="navigate") Profile Page
@@ -14,7 +16,7 @@ SideBar
 </template>
 
 <script setup>
-import { defineProps, reactive, inject } from "vue";
+import { inject } from "vue";
 const { profile } = inject("datas");
 </script>
 

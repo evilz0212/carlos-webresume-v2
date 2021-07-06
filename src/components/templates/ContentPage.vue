@@ -2,7 +2,7 @@
 Header
 SideBar
 goTop
-section
+.content
 	router-view
 </template>
 
@@ -10,7 +10,7 @@ section
 </script>
 
 <style lang='scss' scoped>
-section {
+.content {
 	padding-top: pos(header_hight);
 }
 </style>

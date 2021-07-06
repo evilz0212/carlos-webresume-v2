@@ -1,0 +1,292 @@
+[
+	{
+		"name": "Vite Sample Project",
+		"picture": "/pictures/vite-sample-project.png",
+		"author": "Carlos",
+		"link": "https://github.com/evilz0212/vite-sample-project",
+		"overview": "呈現即時虛擬貨幣資訊 ( CoinGecko api )",
+		"target_List": [
+			{
+				"mission": "建構新專案啟動時所需的基礎配置",
+				"description": ["vite 編譯打包", "Scss\\Pug 預處理", "npm\\env\\git 專案設定"]
+			},
+			{
+				"mission": "規劃專案項目結構",
+				"description": [
+					"vue\\css\\js 模板模組化管理",
+					"api\\route\\vuex 業務邏輯統一管理",
+					"image\\json\\file 資源管理"
+				]
+			}
+		],
+		"detail_List": [
+			{
+				"task": "前端框架：Vue(3.0), Vuex, Vue-Router",
+				"description": []
+			},
+			{
+				"task": "編譯工具：Vite",
+				"description": []
+			},
+			{
+				"task": "模板語言：ES6, SASS, Pug",
+				"description": []
+			},
+			{
+				"task": "應用套件：",
+				"description": [
+					"vuex-persistedstate：Store 狀態保存",
+					"Axios：攔截器、統一錯誤管理、封裝請求"
+				]
+			},
+			{
+				"task": "串接API：Postman mockserver、CoinGecko",
+				"description": []
+			}
+		]
+	},
+	{
+		"name": "Webauthn API",
+		"picture": "/pictures/ex-fe-webauthn.png",
+		"author": "Carlos",
+		"link": "https://github.com/evilz0212/ex-fe-webauthn",
+		"overview": "使用雙重因素登入（密碼+生物辨識）",
+		"target_List": [
+			{
+				"mission": "Docker 快速部署前後端專案",
+				"description": [
+					"Dockerfile\\docker-compose 映像檔設定",
+					"nginx-proxy 反向代理後端 api"
+				]
+			},
+			{
+				"mission": "GCP 架設雲端主機",
+				"description": [
+					"SSH 金鑰連線",
+					"Domain 自訂網域申請",
+					"SSL 憑證申請",
+					"clamav 定期防毒掃描",
+					"資安設定（防火牆設定、TLS 版本、限制同源iFrame）"
+				]
+			},
+			{
+				"mission": "UI 設計",
+				"description": [
+					"Flowchart\\Wireframe 流程\\版型\\組件規劃",
+					"Mockup 玻璃擬真風格設計"
+				]
+			},
+			{
+				"mission": "Vue 前端專案建構",
+				"description": ["scss 樣式組件化", "js services 功能封裝", "api 管理"]
+			}
+		],
+		"detail_List": [
+			{
+				"task": "雲端主機：",
+				"description": [
+					"Server：GCP, Cloud DNS, VM(ubuntu 18.04)",
+					"Domain：freenom",
+					"SSL：sslforfree",
+					"App：docker, docker-compose, nginx, clamav"
+				]
+			},
+			{
+				"task": "前端框架：Vue(3.0), Vuex, Vue-Router",
+				"description": []
+			},
+			{
+				"task": "編譯工具：Vite",
+				"description": []
+			},
+			{
+				"task": "模板語言：ES6, SASS, Pug",
+				"description": []
+			},
+			{
+				"task": "應用套件：",
+				"description": [
+					"vuex-persistedstate：Store 狀態保存",
+					"Axios：攔截器、統一錯誤管理、封裝請求"
+				]
+			}
+		]
+	},
+	{
+		"name": "Docker Nginx Proxy",
+		"picture": "/pictures/docker-sample-project.png",
+		"author": "Carlos",
+		"link": "https://github.com/evilz0212/docker-sample-project",
+		"overview": "同域名下使用路徑判斷代理到前端或後端 ( /api )",
+		"target_List": [
+			{
+				"mission": "使用 Docker 容器分離前後端專案環境",
+				"description": []
+			},
+			{
+				"mission": "Nginx-proxy 連結 Docker Network 代理前後端服務",
+				"description": []
+			}
+		],
+		"detail_List": [
+			{
+				"task": "Docker：multi 建置設定",
+				"description": []
+			},
+			{
+				"task": "Docker-compose：自訂容器 networks 設定",
+				"description": []
+			},
+			{
+				"task": "Nginx：proxy_pass(docker container)",
+				"description": []
+			}
+		]
+	},
+	{
+		"name": "WebAR",
+		"picture": "/pictures/ex-ar-webar.png",
+		"author": "Carlos",
+		"link": "https://github.com/evilz0212/ex-ar-webar",
+		"overview": "掃描特定圖像，呈現可互動3D模組",
+		"target_List": [
+			{
+				"mission": "WebAR 圖像追蹤 (Image Tracking)",
+				"description": []
+			},
+			{
+				"mission": "使用 A-Frame 版本，設定模組互動(一指旋轉\\兩指縮放)",
+				"description": []
+			}
+		],
+		"detail_List": [
+			{
+				"task": "WebAR：AR.js 圖像追蹤設定、觸發點擊 UI",
+				"description": []
+			},
+			{
+				"task": "A-Frame：glb 模組屬性設定、燈光設定、互動設定",
+				"description": []
+			}
+		]
+	},
+	{
+		"name": "APIdoc example",
+		"picture": "/pictures/ex-js-apidoc.png",
+		"author": "Carlos",
+		"link": "https://github.com/evilz0212/ex-js-apidoc",
+		"overview": "JS 編寫 API 規格文件網頁",
+		"target_List": [
+			{
+				"mission": "API 規格文件",
+				"description": [
+					"RESTful API 設計準則",
+					"即時測試 API 請求回應",
+					"可模組化管理",
+					"可版本控制"
+				]
+			}
+		],
+		"detail_List": [
+			{
+				"task": "apidoc (以JS註解產出規格文件)",
+				"description": []
+			},
+			{
+				"task": "gaze (監視更動自動編譯)",
+				"description": []
+			}
+		]
+	},
+	{
+		"name": "Auto Script",
+		"picture": "/pictures/tool-autoscript.png",
+		"author": "Carlos",
+		"link": "https://github.com/evilz0212/tool-autoscript",
+		"overview": "紀錄開發連線相關設定，使用簡易指令快速連線及部署。",
+		"target_List": [
+			{
+				"mission": "腳本模式: 快速部署/網站資料夾/資料庫",
+				"description": []
+			}
+		],
+		"detail_List": [
+			{
+				"task": "ssh: 測試/正式環境",
+				"description": []
+			}
+		]
+	},
+	{
+		"name": "MemoryBlock",
+		"picture": "/pictures/ex-js-memoryblock.png",
+		"author": "Carlos",
+		"link": "https://github.com/evilz0212/ex-js-memoryblock",
+		"overview": "JS 節奏記憶小遊戲，跟著提示點擊相同順序的方塊，失誤將回到第一關重新開始",
+		"target_List": [
+			{
+				"mission": "JS 物件導向",
+				"description": []
+			}
+		],
+		"detail_List": [
+			{
+				"task": "ES6：prototype \\ class 物件導向、import \\ export 模塊化、字串模板語法",
+				"description": []
+			},
+			{
+				"task": "vite：全局載入樣式、打包編譯路徑",
+				"description": []
+			},
+			{
+				"task": "git：上傳 gh-pages 分支（git subtree split）",
+				"description": []
+			},
+			{
+				"task": "sass：變數 \\ 組件樣式管理",
+				"description": []
+			},
+			{
+				"task": "html5：audio 標籤操作、音檔支援度標示（audio/x-wav）、Web Audio API（互動延遲）",
+				"description": []
+			}
+		]
+	},
+	{
+		"name": "DayBox",
+		"picture": "/pictures/ex-at-daybox.png",
+		"author": "Carlos",
+		"link": "https://github.com/evilz0212/ex-at-daybox",
+		"overview": "CSS動畫呈現一週天氣預報圖示、切換顯示當日溫度",
+		"target_List": [
+			{
+				"mission": "練習 Webapck 建置專案，客製化打包配置",
+				"description": []
+			},
+			{
+				"mission": "練習 CSS animation 基礎動畫效果",
+				"description": []
+			}
+		],
+		"detail_List": [
+			{
+				"task": "Pug：預處理模板語言",
+				"description": []
+			},
+			{
+				"task": "Sass：預處理樣式語言",
+				"description": []
+			},
+			{
+				"task": "Webpack：自訂 config 設定",
+				"description": [
+					"輸出輸入 (path, hash, env)",
+					"loader (babel, sass, postcss, autoprefixer, mini-css, pug, file, image)",
+					"壓縮 (purify-css, optimize-css)",
+					"即時刷新 (dev-server, livereload)",
+					"插件 (ProvidePlugin, jquery, GoogleFontsPlugin)"
+				]
+			}
+		]
+	}
+]

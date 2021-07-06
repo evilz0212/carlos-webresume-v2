@@ -1,4 +1,11 @@
 {
-    "name": "test123",
-    "date": "2021-10-08"
+	"name": "Carlos",
+	"slogan": "Comfort under beauty",
+	"description": "致力創作出細緻質感、獨特魅力的作品，賦予虛擬世界近乎真實的體驗。",
+	"profession": "Front-end Developer",
+	"picture": "/pictures/Carlos.png",
+	"link_CV": "http://CV.pdf",
+	"link_Email": "mailto:evilz0212@gmail.com",
+	"link_IG": "http://IG.com",
+	"link_GitHub": "http://GitHub.com"
 }

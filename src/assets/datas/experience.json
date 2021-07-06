@@ -1,1 +1,32 @@
-{}
+[
+	{
+		"period": "2019-09  ~  2021-07",
+		"company": "ArcRan",
+		"profession": "< RD - Front-End Developer >",
+		"projects": [
+			{
+				"project": "KISS 專案",
+				"description": "網紅資安保鑣服務平台\n負責前端開發、制定 API 文件、第三方服務串接等。"
+			},
+			{
+				"project": "ISAC.tw 專案",
+				"description": "資安解題社群平台\n負責前端開發、後端功能開發、線框稿繪製、規格列表彙整、流程圖繪製、使用者故事地圖編寫、\n網頁伺服器設定、資安漏洞處理等。"
+			},
+			{
+				"project": "ArcRan Web 專案",
+				"description": "公司入口網站，以及各項產品形象頁\n負責公司主網頁切版、各產品形象頁面切版、電子信模板、網頁伺服器設定、日常更新及維護等。"
+			}
+		]
+	},
+	{
+		"period": "2017-02  ~  2017-07",
+		"company": "哈瑪星科技",
+		"profession": "< Intern >",
+		"projects": [
+			{
+				"project": "Google VR",
+				"description": "實作 Google VR SDK Demo，透過 VR  Cardboard 呈現 3D 場景、人物模組，物體碰撞，\n使用 Unity 引擎載入模組並設置場景，可以通過簡易的互動介面進行小遊戲。"
+			}
+		]
+	}
+]
