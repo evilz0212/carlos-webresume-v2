@@ -3,12 +3,11 @@
 </template>
 
 <script setup>
-import { onMounted, watch } from "vue";
-import initCanvas from "@/services/canvas";
+import { onMounted, inject } from "vue";
+const p5Canvas = inject("p5Canvas");
 
 onMounted(() => {
-	// initCanvas("main");
-	// initCanvas("background");
+	p5Canvas("main");
 });
 </script>
 

@@ -138,6 +138,8 @@ function loadImages() {
 }
 // 生成組件陣列：行星群
 function createPlanetArray() {
+	planets.splice(0, planets.length)
+	planets_opacity.splice(0, planets_opacity.length)
 	for (let i = 0; i < (p5.width / 1000) * 10; i++) {
 		planets.push({
 			img: p5.random(img_planet),
@@ -165,6 +167,7 @@ function createPlanetArray() {
 }
 // 生成組件陣列：軌道弧線
 function createArcArray() {
+	arc.splice(0, arc.length)
 	let track_colors = ["linear_01_01", "linear_01_02", "gold_01"]
 
 	for (let i = track.r_inside; i < track.r_outside; i += track.space) {
@@ -182,6 +185,7 @@ function createArcArray() {
 }
 // 生成組件陣列：衛星行星
 function createSatelliteArray() {
+	satellites.splice(0, satellites.length)
 	for (let i = 0; i < (p5.width / 1000) * 4; i++) {
 		satellites.push({
 			img: p5.random(img_planet),
