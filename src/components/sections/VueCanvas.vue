@@ -7,7 +7,7 @@ import { onMounted, watch } from "vue";
 import initCanvas from "@/services/canvas";
 
 onMounted(() => {
-	initCanvas();
+	initCanvas("main");
 });
 </script>
 
