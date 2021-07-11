@@ -2,6 +2,8 @@ import P5 from "p5"
 
 let p5, p5_glass, pg
 let canvasType
+let emptyCardPosition
+let filterDom
 
 // 參數
 const color_list = {
@@ -195,7 +197,7 @@ function createSatelliteArray() {
 			deg: p5.random(360),
 			moveX: p5.random(-1, 1),
 			moveY: p5.random(-1, 1),
-			speed: p5.random(0.2),
+			speed: p5.random(0.3),
 		})
 	}
 }
@@ -260,7 +262,7 @@ function script(_p5) {
 		drawCanvas()
 
 		// 暫停
-		// p5.noLoop()
+		pauseCanvas(p5)
 	}
 
 	// 視窗大小重置
@@ -272,19 +274,11 @@ function script(_p5) {
 function script_glass(_p5) {
 	p5_glass = _p5
 
-	// 取得玻璃霧化區塊
-	let emptyCardDom = document.querySelector(".emptyCard")
-	let emptyCardPosition = {
-		x: emptyCardDom.offsetLeft,
-		y: emptyCardDom.offsetTop,
-		w: emptyCardDom.offsetWidth,
-		h: emptyCardDom.offsetHeight,
-	}
-
 	// 初始化
 	p5_glass.setup = () => {
 		const canvas_glass = p5_glass.createCanvas(emptyCardPosition.w, emptyCardPosition.h)
 		canvas_glass.parent("vue-canvas-glass")
+		filterDom = document.querySelector(".canvas-container")
 	}
 
 	// 畫布繪圖
@@ -302,13 +296,19 @@ function script_glass(_p5) {
 			emptyCardPosition.h
 		)
 
+		// 遮罩元件
+		filterDom.style.top = `${emptyCardPosition.y}px`
+		filterDom.style.left = `${emptyCardPosition.x}px`
+		filterDom.style.width = `${emptyCardPosition.w}px`
+		filterDom.style.height = `${emptyCardPosition.h}px`
+
 		// 查看區塊定位
 		// p5_glass.stroke(0)
 		// p5_glass.noFill()
 		// p5_glass.rect(0, 0, emptyCardPosition.w, emptyCardPosition.h)
 
 		// 暫停
-		// p5_glass.noLoop()
+		pauseCanvas(p5_glass)
 	}
 
 	// 視窗大小重置
@@ -317,12 +317,18 @@ function script_glass(_p5) {
 	}
 }
 
-export default (type) => {
+function pauseCanvas(cv) {
+	// cv.noLoop()
+}
+
+export default (type, glassPosition = null) => {
 	canvasType = type
-	if (canvasType == "main") {
-		new P5(script)
+	emptyCardPosition = glassPosition
+
+	new P5(script)
+	if (emptyCardPosition) {
 		new P5(script_glass)
-	} else if (canvasType == "background") {
-		new P5(script)
+	} else {
+		p5_glass && p5_glass.remove()
 	}
 }

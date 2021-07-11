@@ -1,5 +1,8 @@
 <template lang='pug'>
-section
+#vue-canvas
+.canvas-container
+	#vue-canvas-glass
+section.demoCard
 	.project Project
 		.card(v-for="project in projects", @click="popCard(project)")
 			p {{ project.picture }}
@@ -13,16 +16,33 @@ section
 </template>
 
 <script setup>
-import { inject } from "vue";
+import { onMounted, inject } from "vue";
 const { projects, exercises } = inject("datas");
 const popup = inject("popup");
+const p5Canvas = inject("p5Canvas");
 
 const popCard = (data) => {
 	popup("popCard", {
 		data: data,
 	});
 };
+
+onMounted(() => {
+	// 取得玻璃霧化區塊
+	let emptyCardDom = document.querySelector(".demoCard");
+	let emptyCardPosition = {
+		x: emptyCardDom.offsetLeft,
+		y: emptyCardDom.offsetTop,
+		w: emptyCardDom.offsetWidth,
+		h: emptyCardDom.offsetHeight,
+	};
+
+	p5Canvas("background", emptyCardPosition);
+});
 </script>
 
 <style lang="scss" scoped>
+.demoCard {
+	@include blur();
+}
 </style>

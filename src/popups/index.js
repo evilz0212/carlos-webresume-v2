@@ -16,10 +16,16 @@ export function createPopup(componentName, options = {}) {
 	vm.appContext = Vue._context
 	render(vm, div)
 
+	// 背景模糊
+	document.getElementById("app").style.filter = "blur(10px)"
+
 	// 預設方法
 	vm.component.ctx.remove = () => {
 		render(null, div)
 		vm = null
+
+		// 移除背景模糊
+		document.getElementById("app").style.filter = ""
 	}
 	vm.component.ctx.showLogText = () => {
 		return "showLogText()"

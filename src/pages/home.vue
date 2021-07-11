@@ -20,40 +20,23 @@ SideBar
 <script setup>
 import { inject, onMounted } from "vue";
 const { profile } = inject("datas");
-
 const p5Canvas = inject("p5Canvas");
 
 onMounted(() => {
-	p5Canvas("main");
+	// 取得玻璃霧化區塊
+	let emptyCardDom = document.querySelector(".emptyCard");
+	let emptyCardPosition = {
+		x: emptyCardDom.offsetLeft,
+		y: emptyCardDom.offsetTop,
+		w: emptyCardDom.offsetWidth,
+		h: emptyCardDom.offsetHeight,
+	};
+
+	p5Canvas("main", emptyCardPosition);
 });
 </script>
 
-<style lang="scss">
-#vue-canvas,
-#vue-canvas-glass {
-	position: fixed;
-	display: block;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	margin: 0 auto;
-	padding: 0;
-	overflow: hidden;
-	z-index: -1;
-}
-.canvas-container {
-	position: fixed;
-	top: pos(sidebar_margin_top);
-	left: 100vw * 0.618 * 0.5 * 0.5;
-	@include size(521px, pos(emptyCard_hight));
-
-	overflow: hidden;
-}
-#vue-canvas-glass {
-	position: relative;
-	filter: blur(6px);
-}
+<style lang="scss" scoped>
 .emptyCard {
 	position: fixed;
 	top: pos(sidebar_margin_top);
@@ -61,9 +44,6 @@ onMounted(() => {
 	@include size(521px, pos(emptyCard_hight));
 
 	@include flex(c, c, col);
-	background-color: rgba(255, 255, 255, 0.5);
-	box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.1);
-	border: 1px solid rgba(255, 255, 255, 0.8);
-	border-radius: 10px;
+	@include blur();
 }
 </style>

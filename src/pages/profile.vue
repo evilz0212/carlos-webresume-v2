@@ -1,4 +1,7 @@
 <template lang='pug'>
+#vue-canvas
+.canvas-container
+	#vue-canvas-glass
 section
 	.profile
 		//- // TODO: 資源更新 - 個人照片
@@ -8,7 +11,7 @@ section
 		p {{ profile.description }}
 		p btn {{ profile.link_CV }}
 		p btn {{ profile.link_GitHub }}
-	.detail
+	.detail.infoCard
 		.btns
 			a(href="#infomation") -Infomation
 			a(href="#experience") -Experience
@@ -20,8 +23,22 @@ section
 </template>
 
 <script setup>
-import { inject } from "vue";
+import { inject, onMounted } from "vue";
 const { profile } = inject("datas");
+const p5Canvas = inject("p5Canvas");
+
+onMounted(() => {
+	// 取得玻璃霧化區塊
+	let emptyCardDom = document.querySelector(".infoCard");
+	let emptyCardPosition = {
+		x: emptyCardDom.offsetLeft,
+		y: emptyCardDom.offsetTop,
+		w: emptyCardDom.offsetWidth,
+		h: emptyCardDom.offsetHeight,
+	};
+
+	p5Canvas("background", emptyCardPosition);
+});
 </script>
 
 <style lang='scss' scoped>
