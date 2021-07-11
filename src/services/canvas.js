@@ -29,9 +29,9 @@ let track = {
 	color: "track_line",
 	opacity: 0.2,
 	width: 2,
-	r_inside: 600, // 內側直徑
-	r_outside: 2400, // 外側直徑
-	space: 150, // 軌道間隔
+	r_inside: window.innerHeight * 0.5, // 內側直徑
+	r_outside: window.innerWidth, // 外側直徑
+	space: window.innerHeight / 8, // 軌道間隔
 }
 let arc = []
 let planets = []
@@ -69,7 +69,8 @@ function drawCanvas() {
 		p5.push()
 		p5.translate(p5.width / 2, p5.height / 2)
 		p5.imageMode(p5.CENTER)
-		let z = p5.sin(p5.frameCount / 200) * 15 // 膨脹係數：速度、幅度
+		let sizeSwitch = window.innerWidth > 1440 ? 1 : 0 // 膨脹開關：平板效能較低會卡頓而關閉
+		let z = p5.sin(p5.frameCount / 300) * 15 * sizeSwitch // 膨脹係數：速度、幅度
 		p5.rotate(p5.frameCount / 200)
 		p5.image(
 			img_planet[0],
@@ -135,24 +136,24 @@ function loadImages() {
 }
 // 生成組件陣列：行星群
 function createPlanetArray() {
-	for (let i = 0; i < 20; i++) {
+	for (let i = 0; i < (p5.width / 1000) * 10; i++) {
 		planets.push({
 			img: p5.random(img_planet),
 			x: p5.random(p5.width * 1.1),
 			y: p5.random(p5.height * 1.1),
-			r: p5.min(p5.abs(p5.tan(p5.random(10, 80))) * 15, 250),
+			r: p5.min(p5.abs(p5.tan(p5.random(10, 80))) * 20, (p5.width / 1000) * 120),
 			deg: p5.random(360),
 			moveX: p5.random(-1, 1),
 			moveY: p5.random(-1, 1),
 			speed: p5.random(0.3),
 		})
 	}
-	for (let i = 0; i < 50; i++) {
+	for (let i = 0; i < (p5.width / 1000) * 25; i++) {
 		planets_opacity.push({
 			img: p5.random(img_planet_opacity),
 			x: p5.random(p5.width * 1.1),
 			y: p5.random(p5.height * 1.1),
-			r: p5.min(p5.abs(p5.tan(p5.random(5, 60))) * 10, 150),
+			r: p5.min(p5.abs(p5.tan(p5.random(5, 60))) * 10, (p5.width / 1000) * 80),
 			deg: p5.random(360),
 			moveX: p5.random(-1, 1),
 			moveY: p5.random(-1, 1),
