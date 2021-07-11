@@ -1,6 +1,18 @@
-@mixin blur() {
-	background-color: rgba(255, 255, 255, 0.5);
-	box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.1);
-	border: 1px solid rgba(255, 255, 255, 0.8);
-	border-radius: 10px;
+@mixin blur($type: "def") {
+	@if ($type == "def") {
+		background-color: rgba(255, 255, 255, 0.5);
+		box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.1);
+		border: 1px solid rgba(255, 255, 255, 0.8);
+		border-radius: 10px;
+	} @else if ($type == "profile") {
+		background-color: rgba(255, 255, 255, 0.3);
+		box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.05);
+		border: 1px solid rgba(255, 255, 255, 0.8);
+		border-radius: 10px;
+	} @else if ($type == "projects") {
+		background-color: rgba(255, 255, 255, 0.4);
+		box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.1);
+		border: 1px solid rgba(255, 255, 255, 0.8);
+		border-radius: 10px;
+	}
 }

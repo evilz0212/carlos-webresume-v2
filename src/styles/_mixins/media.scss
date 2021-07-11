@@ -1,0 +1,10 @@
+@mixin web {
+	@media (min-width: 1440px) {
+		@content;
+	}
+}
+@mixin pad {
+	@media (max-width: 1439px) {
+		@content;
+	}
+}

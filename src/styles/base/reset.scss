@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap");
+
 html {
 	// 取消邊界重疊
 	box-sizing: border-box;
@@ -16,7 +18,7 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 
-	font-family: "Noto Sans TC", sans-serif;
+	font-family: "Montserrat", "Noto Sans TC", sans-serif;
 	background-color: color(basic_white);
 }
 
@@ -30,4 +32,21 @@ body {
 
 svg:focus {
 	outline: none;
+}
+
+p {
+	margin: 0.5em 0;
+}
+a {
+	text-decoration: none;
+}
+
+button {
+	border: 0px;
+	background-color: color(basic_white);
+	color: color(basic_black);
+
+	&:hover {
+		cursor: pointer;
+	}
 }
