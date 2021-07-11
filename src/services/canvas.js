@@ -36,6 +36,7 @@ let track = {
 let arc = []
 let planets = []
 let planets_opacity = []
+let satellites = []
 
 function drawCanvas() {
 	p5.background(color("background"))
@@ -48,6 +49,7 @@ function drawCanvas() {
 		drawStar()
 		drawPlanet(planets)
 	} else if (canvasType == "background") {
+		drawPlanet(satellites)
 	}
 
 	// 繪圖：軌道
@@ -178,6 +180,21 @@ function createArcArray() {
 		})
 	}
 }
+// 生成組件陣列：衛星行星
+function createSatelliteArray() {
+	for (let i = 0; i < (p5.width / 1000) * 4; i++) {
+		satellites.push({
+			img: p5.random(img_planet),
+			x: p5.random(p5.width * 1.2),
+			y: p5.random(p5.height * 1.2),
+			r: p5.random(30, 300),
+			deg: p5.random(360),
+			moveX: p5.random(-1, 1),
+			moveY: p5.random(-1, 1),
+			speed: p5.random(0.2),
+		})
+	}
+}
 
 // =================================================================
 // Tools
@@ -226,8 +243,12 @@ function script(_p5) {
 		canvas.parent("vue-canvas")
 
 		loadImages()
-		createArcArray()
-		createPlanetArray()
+		if (canvasType == "main") {
+			createArcArray()
+			createPlanetArray()
+		} else if (canvasType == "background") {
+			createSatelliteArray()
+		}
 	}
 
 	// 畫布繪圖
