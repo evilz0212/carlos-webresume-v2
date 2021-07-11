@@ -9,7 +9,6 @@ import InfomationBlock from "./molecules/infoBlock/InfomationBlock.vue"
 import SkillsBlock from "./molecules/infoBlock/SkillsBlock.vue"
 
 // sections
-import VueCanvas from "./sections/VueCanvas.vue"
 import Header from "./sections/Header.vue"
 
 export default Object.assign({
@@ -23,6 +22,5 @@ export default Object.assign({
 	SkillsBlock,
 
 	// sections
-	VueCanvas,
 	Header,
 })

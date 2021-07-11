@@ -1,6 +1,6 @@
 import P5 from "p5"
 
-let p5, pCir
+let p5, p5_glass, pg
 let canvasType
 
 // 參數
@@ -258,6 +258,9 @@ function script(_p5) {
 	// 畫布繪圖
 	p5.draw = () => {
 		drawCanvas()
+
+		// 暫停
+		// p5.noLoop()
 	}
 
 	// 視窗大小重置
@@ -266,7 +269,60 @@ function script(_p5) {
 	}
 }
 
+function script_glass(_p5) {
+	p5_glass = _p5
+
+	// 取得玻璃霧化區塊
+	let emptyCardDom = document.querySelector(".emptyCard")
+	let emptyCardPosition = {
+		x: emptyCardDom.offsetLeft,
+		y: emptyCardDom.offsetTop,
+		w: emptyCardDom.offsetWidth,
+		h: emptyCardDom.offsetHeight,
+	}
+
+	// 初始化
+	p5_glass.setup = () => {
+		const canvas_glass = p5_glass.createCanvas(emptyCardPosition.w, emptyCardPosition.h)
+		canvas_glass.parent("vue-canvas-glass")
+	}
+
+	// 畫布繪圖
+	p5_glass.draw = () => {
+		// 取得主要畫布截圖，繪至玻璃物化元件
+		p5_glass.copy(
+			p5,
+			emptyCardPosition.x,
+			emptyCardPosition.y,
+			emptyCardPosition.w,
+			emptyCardPosition.h,
+			0,
+			0,
+			emptyCardPosition.w,
+			emptyCardPosition.h
+		)
+
+		// 查看區塊定位
+		// p5_glass.stroke(0)
+		// p5_glass.noFill()
+		// p5_glass.rect(0, 0, emptyCardPosition.w, emptyCardPosition.h)
+
+		// 暫停
+		// p5_glass.noLoop()
+	}
+
+	// 視窗大小重置
+	p5_glass.windowResized = () => {
+		p5_glass.resizeCanvas(emptyCardPosition.w, emptyCardPosition.h)
+	}
+}
+
 export default (type) => {
 	canvasType = type
-	new P5(script)
+	if (canvasType == "main") {
+		new P5(script)
+		new P5(script_glass)
+	} else if (canvasType == "background") {
+		new P5(script)
+	}
 }
