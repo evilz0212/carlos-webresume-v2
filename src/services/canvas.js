@@ -3,7 +3,7 @@ import P5 from "p5"
 let p5, p5_glass, pg
 let canvasType
 let emptyCardPosition
-let filterDom
+let filterDom, canvasDom
 
 // 參數
 const color_list = {
@@ -23,6 +23,7 @@ const color_list = {
 }
 
 // 資源
+let img_planet_center
 let img_planet = []
 let img_planet_opacity = []
 
@@ -40,8 +41,8 @@ let planets = []
 let planets_opacity = []
 let satellites = []
 
-function drawCanvas() {
-	p5.background(color("background"))
+function drawCanvas(_p5) {
+	_p5.background(color("background"))
 
 	// 繪圖組
 	if (canvasType == "main") {
@@ -56,81 +57,85 @@ function drawCanvas() {
 
 	// 繪圖：軌道
 	function drawTrack() {
-		p5.push()
-		p5.translate(p5.width / 2, p5.height / 2)
-		p5.noFill()
-		p5.stroke(color(track.color, track.opacity))
-		p5.strokeWeight(track.width)
+		_p5.push()
+		_p5.translate(_p5.width / 2, _p5.height / 2)
+		_p5.noFill()
+		_p5.stroke(color(track.color, track.opacity))
+		_p5.strokeWeight(track.width)
 
 		for (let i = track.r_inside; i < track.r_outside; i += track.space) {
-			p5.circle(0, 0, i)
+			_p5.circle(0, 0, i)
 		}
-		p5.pop()
+		_p5.pop()
 	}
 
 	// 繪圖：中心恆星
 	function drawStar() {
-		p5.push()
-		p5.translate(p5.width / 2, p5.height / 2)
-		p5.imageMode(p5.CENTER)
+		_p5.push()
+		_p5.translate(_p5.width / 2, _p5.height / 2)
+		_p5.imageMode(_p5.CENTER)
 		let sizeSwitch = window.innerWidth > 1440 ? 1 : 0 // 膨脹開關：平板效能較低會卡頓而關閉
-		let z = p5.sin(p5.frameCount / 300) * 15 * sizeSwitch // 膨脹係數：速度、幅度
-		p5.rotate(p5.frameCount / 200)
-		p5.image(
-			img_planet[0],
+		let z = _p5.sin(_p5.frameCount / 300) * 15 * sizeSwitch // 膨脹係數：速度、幅度
+		_p5.rotate(_p5.frameCount / 200)
+		_p5.image(
+			img_planet_center,
 			0,
 			0,
 			track.r_inside - track.space - z,
 			track.r_inside - track.space - z
 		)
-		p5.pop()
+		_p5.pop()
 	}
 
 	// 繪圖：軌道弧線
 	function drawArc() {
-		p5.push()
-		p5.translate(p5.width / 2, p5.height / 2)
+		_p5.push()
+		_p5.translate(_p5.width / 2, _p5.height / 2)
 
-		p5.noFill()
-		p5.strokeCap(p5.SQUARE)
+		_p5.noFill()
+		_p5.strokeCap(_p5.SQUARE)
 
 		for (let i = 0; i < arc.length; i++) {
 			const e = arc[i]
 
-			p5.push()
-			p5.stroke(color(e.color, e.opacity))
-			p5.strokeWeight(e.width)
+			_p5.push()
+			_p5.stroke(color(e.color, e.opacity))
+			_p5.strokeWeight(e.width)
 			// 概念：時間的前進倒轉 (mouseX 控制)
-			let mouseMove = (p5.mouseX * e.speed) / 2 // 依據 mouseX, 基礎速度 增加旋轉幅度
+			let mouseMove = (_p5.mouseX * e.speed) / 2 // 依據 mouseX, 基礎速度 增加旋轉幅度
 			let change = ((mouseMove * e.direction) / e.r / e.deg) * 60000 // 方向性、質量、距離加權
-			p5.rotate(p5.frameCount * e.direction * e.speed + change)
-			p5.arc(0, 0, e.r, e.r, p5.radians(e.start), p5.radians(e.start + e.deg))
-			p5.pop()
+			_p5.rotate(_p5.frameCount * e.direction * e.speed + change)
+			_p5.arc(0, 0, e.r, e.r, _p5.radians(e.start), _p5.radians(e.start + e.deg))
+			_p5.pop()
 		}
-		p5.pop()
+		_p5.pop()
 	}
 
 	// 繪圖：漂浮行星
 	function drawPlanet(planetArray) {
-		p5.push()
+		_p5.push()
 		for (let i = 0; i < planetArray.length; i++) {
 			const e = planetArray[i]
 
-			p5.push()
-			p5.translate(
-				e.x + p5.frameCount * e.moveX * e.speed,
-				e.y + p5.frameCount * e.moveY * e.speed
+			_p5.push()
+			_p5.translate(
+				e.x + _p5.frameCount * e.moveX * e.speed,
+				e.y + _p5.frameCount * e.moveY * e.speed
 			)
-			p5.rotate(e.deg)
-			p5.image(e.img, 0, 0, e.r, e.r)
-			p5.pop()
+			_p5.rotate(e.deg)
+			_p5.image(e.img, 0, 0, e.r, e.r)
+			_p5.pop()
 		}
-		p5.pop()
+		_p5.pop()
 	}
 }
 
 // 繪製並載入所有圖形
 function loadImages() {
+	img_planet.splice(0, planets.length)
+	img_planet_opacity.splice(0, planets_opacity.length)
+
+	img_planet_center = lerpCircle(color("linear_01_01"), color("linear_01_02"), 1000)
 	img_planet.push(lerpCircle(color("linear_01_01"), color("linear_01_02")))
 	img_planet.push(lerpCircle(color("linear_02_01"), color("linear_02_02")))
 	img_planet.push(lerpCircle(color("linear_03_01"), color("linear_03_02")))
@@ -151,7 +156,7 @@ function createPlanetArray() {
 			deg: p5.random(360),
 			moveX: p5.random(-1, 1),
 			moveY: p5.random(-1, 1),
-			speed: p5.random(0.3),
+			speed: p5.random(0.5),
 		})
 	}
 	for (let i = 0; i < (p5.width / 1000) * 25; i++) {
@@ -163,7 +168,7 @@ function createPlanetArray() {
 			deg: p5.random(360),
 			moveX: p5.random(-1, 1),
 			moveY: p5.random(-1, 1),
-			speed: p5.random(0.05),
+			speed: p5.random(0.2),
 		})
 	}
 }
@@ -180,7 +185,7 @@ function createArcArray() {
 			r: i,
 			deg: p5.random(60, 120), // 弧長(角度單位)
 			start: p5.random(360), // 初始位置
-			speed: p5.random(0.0005, 0.005), // 移動速度
+			speed: p5.random(0.0005, 0.008), // 移動速度
 			direction: p5.random([-1, 1]),
 		})
 	}
@@ -197,7 +202,7 @@ function createSatelliteArray() {
 			deg: p5.random(360),
 			moveX: p5.random(-1, 1),
 			moveY: p5.random(-1, 1),
-			speed: p5.random(0.3),
+			speed: p5.random(1),
 		})
 	}
 }
@@ -212,11 +217,11 @@ function color(color_name, alpha = 1) {
 }
 
 // 繪製漸層圓形 img
-function lerpCircle(c1, c2) {
+function lerpCircle(c1, c2, r = 400) {
 	let x = 0
 	let y = 0
-	let w = 1000
-	let h = 1000
+	let w = r
+	let h = r
 
 	let img = p5.createImage(w, h)
 	img.loadPixels()
@@ -249,20 +254,6 @@ function script(_p5) {
 		canvas.parent("vue-canvas")
 
 		loadImages()
-		if (canvasType == "main") {
-			createArcArray()
-			createPlanetArray()
-		} else if (canvasType == "background") {
-			createSatelliteArray()
-		}
-	}
-
-	// 畫布繪圖
-	p5.draw = () => {
-		drawCanvas()
-
-		// 暫停
-		pauseCanvas(p5)
 	}
 
 	// 視窗大小重置
@@ -276,59 +267,66 @@ function script_glass(_p5) {
 
 	// 初始化
 	p5_glass.setup = () => {
-		const canvas_glass = p5_glass.createCanvas(emptyCardPosition.w, emptyCardPosition.h)
+		const canvas_glass = p5_glass.createCanvas(window.innerWidth, window.innerHeight)
 		canvas_glass.parent("vue-canvas-glass")
 		filterDom = document.querySelector(".canvas-container")
 	}
 
-	// 畫布繪圖
-	p5_glass.draw = () => {
-		// 取得主要畫布截圖，繪至玻璃物化元件
-		p5_glass.copy(
-			p5,
-			emptyCardPosition.x,
-			emptyCardPosition.y,
-			emptyCardPosition.w,
-			emptyCardPosition.h,
-			0,
-			0,
-			emptyCardPosition.w,
-			emptyCardPosition.h
-		)
+	// 視窗大小重置
+	p5_glass.windowResized = () => {
+		p5_glass.resizeCanvas(window.innerWidth, window.innerHeight)
+	}
+}
 
-		// 遮罩元件
+// 首次載入 p5.js
+export function setup() {
+	new P5(script)
+	new P5(script_glass)
+}
+
+// 依據頁面載入設定
+export function loadSettings(type, glassPosition = null) {
+	canvasType = type
+	emptyCardPosition = glassPosition
+
+	// 遮罩元件
+	if (filterDom && glassPosition) {
 		filterDom.style.top = `${emptyCardPosition.y}px`
 		filterDom.style.left = `${emptyCardPosition.x}px`
 		filterDom.style.width = `${emptyCardPosition.w}px`
 		filterDom.style.height = `${emptyCardPosition.h}px`
-
-		// 查看區塊定位
-		// p5_glass.stroke(0)
-		// p5_glass.noFill()
-		// p5_glass.rect(0, 0, emptyCardPosition.w, emptyCardPosition.h)
-
-		// 暫停
-		pauseCanvas(p5_glass)
+	} else if (p5_glass) {
+		p5_glass.remove()
 	}
 
-	// 視窗大小重置
-	p5_glass.windowResized = () => {
-		p5_glass.resizeCanvas(emptyCardPosition.w, emptyCardPosition.h)
+	// 生成組件陣列
+	if (canvasType == "main") {
+		createArcArray()
+		createPlanetArray()
+	} else if (canvasType == "background") {
+		createSatelliteArray()
 	}
 }
 
-function pauseCanvas(cv) {
-	// cv.noLoop()
+// 繪圖
+export function draw() {
+	// 畫布繪圖
+	p5.draw = () => {
+		drawCanvas(p5)
+	}
+
+	// 畫布繪圖：玻璃霧化
+	p5_glass.draw = () => {
+		p5_glass.translate(-emptyCardPosition.x, -emptyCardPosition.y)
+		drawCanvas(p5_glass)
+	}
+
+	// 暫停
+	// pauseCanvas()
 }
 
-export default (type, glassPosition = null) => {
-	canvasType = type
-	emptyCardPosition = glassPosition
-
-	new P5(script)
-	if (emptyCardPosition) {
-		new P5(script_glass)
-	} else {
-		p5_glass && p5_glass.remove()
-	}
+// 暫停繪圖
+export function pauseCanvas(cv) {
+	p5.noLoop()
+	p5_glass.noLoop()
 }

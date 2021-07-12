@@ -1,7 +1,4 @@
 <template lang='pug'>
-#vue-canvas
-.canvas-container
-	#vue-canvas-glass
 section
 	.demoCard
 		.project 
@@ -20,9 +17,9 @@ section
 
 <script setup>
 import { onMounted, inject } from "vue";
+import * as p5 from "@/services/canvas";
 const { projects, exercises } = inject("datas");
 const popup = inject("popup");
-const p5Canvas = inject("p5Canvas");
 
 const popCard = (data) => {
 	popup("popCard", {
@@ -40,7 +37,8 @@ onMounted(() => {
 		h: emptyCardDom.offsetHeight,
 	};
 
-	p5Canvas("background", emptyCardPosition);
+	p5.loadSettings("background", emptyCardPosition);
+	p5.draw();
 });
 </script>
 
@@ -58,6 +56,13 @@ section {
 	margin: 0px 10vw;
 	padding: 40px;
 	overflow: hidden scroll;
+
+	// 隱藏 Scrollbar
+	scrollbar-width: none; /* For Firefox */
+	-ms-overflow-style: none; /* For Internet Explorer and Edge */
+	&::-webkit-scrollbar {
+		width: 0px; /* For Chrome, Safari, and Opera */
+	}
 }
 
 h2 {

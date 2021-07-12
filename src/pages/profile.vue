@@ -1,7 +1,4 @@
 <template lang='pug'>
-#vue-canvas
-.canvas-container
-	#vue-canvas-glass
 section
 	.profile
 		//- // TODO: 資源更新 - 個人照片
@@ -32,13 +29,11 @@ section
 
 <script setup>
 import { inject, onMounted, watch, ref } from "vue";
+import * as p5 from "@/services/canvas";
 const { profile } = inject("datas");
-const p5Canvas = inject("p5Canvas");
 
 const scrollBlock = ref("infomation");
 const scrollChange = () => {
-	let scrollDom;
-
 	btnDom = {
 		infomation: document.querySelector(".infomation"),
 		experience: document.querySelector(".experience"),
@@ -88,7 +83,8 @@ onMounted(() => {
 		h: emptyCardDom.offsetHeight,
 	};
 
-	p5Canvas("background", emptyCardPosition);
+	p5.loadSettings("background", emptyCardPosition);
+	p5.draw();
 });
 </script>
 
@@ -169,6 +165,7 @@ section {
 	@include flex(fs, st);
 	overflow: auto;
 	padding: 30px 15vw;
+
 	.btns {
 		position: absolute;
 		transform: translate(-15vw, 0px);
@@ -199,6 +196,13 @@ section {
 		flex: 1;
 
 		padding: 30px 40px;
+
+		// 隱藏 Scrollbar
+		scrollbar-width: none; /* For Firefox */
+		-ms-overflow-style: none; /* For Internet Explorer and Edge */
+		&::-webkit-scrollbar {
+			width: 0px; /* For Chrome, Safari, and Opera */
+		}
 	}
 	.infoCard {
 		@include blur("profile");

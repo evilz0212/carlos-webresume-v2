@@ -1,7 +1,4 @@
 <template lang="pug">
-#vue-canvas
-.canvas-container
-	#vue-canvas-glass
 SideBar
 
 .emptyCard
@@ -20,8 +17,8 @@ SideBar
 
 <script setup>
 import { inject, onMounted } from "vue";
+import * as p5 from "@/services/canvas";
 const { profile } = inject("datas");
-const p5Canvas = inject("p5Canvas");
 
 onMounted(() => {
 	// 取得玻璃霧化區塊
@@ -33,7 +30,8 @@ onMounted(() => {
 		h: emptyCardDom.offsetHeight,
 	};
 
-	p5Canvas("main", emptyCardPosition);
+	p5.loadSettings("main", emptyCardPosition);
+	p5.draw();
 });
 </script>
 
