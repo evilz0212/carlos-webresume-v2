@@ -33,7 +33,7 @@
 	background-color: transparent;
 	img {
 		@include size(60px);
-		margin-right: 30px;
+		margin-right: 25px;
 	}
 	.name {
 		font-size: 24px;

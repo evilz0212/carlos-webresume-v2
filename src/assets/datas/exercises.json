@@ -1,7 +1,7 @@
 [
 	{
 		"name": "Vite Sample Project",
-		"picture": "/pictures/vite-sample-project.png",
+		"picture": "/pictures/vite-sample-project.jpg",
 		"author": "Carlos",
 		"link": "https://github.com/evilz0212/vite-sample-project",
 		"overview": "呈現即時虛擬貨幣資訊 ( CoinGecko api )",
@@ -47,7 +47,7 @@
 	},
 	{
 		"name": "Webauthn API",
-		"picture": "/pictures/ex-fe-webauthn.png",
+		"picture": "/pictures/ex-fe-webauthn.jpg",
 		"author": "Carlos",
 		"link": "https://github.com/evilz0212/ex-fe-webauthn",
 		"overview": "使用雙重因素登入（密碼+生物辨識）",
@@ -114,7 +114,7 @@
 	},
 	{
 		"name": "Docker Nginx Proxy",
-		"picture": "/pictures/docker-sample-project.png",
+		"picture": "/pictures/docker-sample-project.jpg",
 		"author": "Carlos",
 		"link": "https://github.com/evilz0212/docker-sample-project",
 		"overview": "同域名下使用路徑判斷代理到前端或後端 ( /api )",
@@ -145,7 +145,7 @@
 	},
 	{
 		"name": "WebAR",
-		"picture": "/pictures/ex-ar-webar.png",
+		"picture": "/pictures/ex-ar-webar.jpg",
 		"author": "Carlos",
 		"link": "https://github.com/evilz0212/ex-ar-webar",
 		"overview": "掃描特定圖像，呈現可互動3D模組",
@@ -172,7 +172,7 @@
 	},
 	{
 		"name": "APIdoc example",
-		"picture": "/pictures/ex-js-apidoc.png",
+		"picture": "/pictures/ex-js-apidoc.jpg",
 		"author": "Carlos",
 		"link": "https://github.com/evilz0212/ex-js-apidoc",
 		"overview": "JS 編寫 API 規格文件網頁",
@@ -200,7 +200,7 @@
 	},
 	{
 		"name": "Auto Script",
-		"picture": "/pictures/tool-autoscript.png",
+		"picture": "/pictures/tool-autoscript.jpg",
 		"author": "Carlos",
 		"link": "https://github.com/evilz0212/tool-autoscript",
 		"overview": "紀錄開發連線相關設定，使用簡易指令快速連線及部署。",
@@ -219,7 +219,7 @@
 	},
 	{
 		"name": "MemoryBlock",
-		"picture": "/pictures/ex-js-memoryblock.png",
+		"picture": "/pictures/ex-js-memoryblock.jpg",
 		"author": "Carlos",
 		"link": "https://github.com/evilz0212/ex-js-memoryblock",
 		"overview": "JS 節奏記憶小遊戲，跟著提示點擊相同順序的方塊，失誤將回到第一關重新開始",
@@ -254,7 +254,7 @@
 	},
 	{
 		"name": "DayBox",
-		"picture": "/pictures/ex-at-daybox.png",
+		"picture": "/pictures/ex-at-daybox.jpg",
 		"author": "Carlos",
 		"link": "https://github.com/evilz0212/ex-at-daybox",
 		"overview": "CSS動畫呈現一週天氣預報圖示、切換顯示當日溫度",

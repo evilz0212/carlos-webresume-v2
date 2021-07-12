@@ -1,18 +1,19 @@
 <template lang='pug'>
+goTop(dom=".demoCard")
 section
 	.demoCard
 		.project 
 			h2 Project
-			//- .card(v-for="project in projects", @click="popCard(project)")
-			//- 	p {{ project.picture }}
-			//- 	p {{ project.name }}
-			//- 	hr
+			.block
+				.card(v-for="project in projects", @click="popCard(project)")
+					img(:alt="project.name", :src="`${projectName}${project.picture}`")
+					p {{ project.name }}
 		.Exercise 
 			h2 Exercise
-			//- .card(v-for="exercise in exercises", @click="popCard(exercise)")
-			//- 	p {{ exercise.picture }}
-			//- 	p {{ exercise.name }}
-			//- 	hr
+			.block
+				.card(v-for="exercise in exercises", @click="popCard(exercise)")
+					img(:alt="exercise.name", :src="`${projectName}${exercise.picture}`")
+					p {{ exercise.name }}
 </template>
 
 <script setup>
@@ -20,6 +21,7 @@ import { onMounted, inject } from "vue";
 import * as p5 from "@/services/canvas";
 const { projects, exercises } = inject("datas");
 const popup = inject("popup");
+const projectName = import.meta.env.VITE_PROJECT_NAME;
 
 const popCard = (data) => {
 	popup("popCard", {
@@ -81,6 +83,66 @@ h2 {
 			color(linear_01_01),
 			color(linear_01_02)
 		);
+	}
+}
+.block {
+	@include flex(sb, fs);
+	flex-flow: wrap;
+	padding: 60px;
+}
+.card {
+	position: relative;
+	margin-bottom: 60px;
+	width: 45%;
+	padding-top: 22.5%;
+
+	border-radius: 20px;
+	background-color: color(neutral_00);
+	box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
+	overflow: hidden;
+
+	cursor: pointer;
+
+	&::after {
+		content: "";
+		position: absolute;
+		top: 0;
+		width: 100%;
+		height: 100%;
+
+		border-radius: 20px;
+		mix-blend-mode: darken;
+		background: linear-gradient(
+			0deg,
+			color(neutral_50, 0.6),
+			color(neutral_00, 0) 60%
+		);
+
+		transition: all 0.4s ease-in-out;
+		opacity: 0;
+	}
+	&:hover::after {
+		opacity: 1;
+	}
+
+	img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+	p {
+		position: absolute;
+		bottom: 8%;
+		left: 6%;
+
+		font-size: 24px;
+		font-weight: 700;
+		color: color(neutral_00);
+		text-shadow: 0px 0px 8px color(neutral_50, 0.6);
+
+		z-index: 1;
 	}
 }
 </style>

@@ -2,10 +2,9 @@
 SideBar
 
 .emptyCard
-	//- // TODO: 資源更新 - Logo
 	img(alt="Logo", src="@/assets/icons/Logo.svg")
-	p.name {{ profile.name }}
 	p.slogan {{ profile.slogan }}
+	p.name {{ profile.name }}
 
 	.btns
 		router-link(:to="{ name: 'profile' }", custom, v-slot="{ navigate }")
@@ -49,23 +48,27 @@ onMounted(() => {
 
 img {
 	@include size(200px);
-}
-.name {
-	font-size: 48px;
-	font-weight: 600;
-	background-color: color(neutral_50);
-	color: transparent;
-	text-shadow: 2px 2px 3px color(neutral_00, 0.2);
-	background-clip: text;
+	margin: 20px;
 }
 .slogan {
-	font-size: 32px;
+	font-size: 36px;
+	font-weight: 400;
 	background-color: color(linear_01_01);
 	color: transparent;
 	text-shadow: 2px 2px 3px color(neutral_00, 0.6);
 	background-clip: text;
 
-	margin-top: 1.5em;
+	margin-top: 1em;
+}
+.name {
+	font-size: 64px;
+	font-weight: 600;
+	background-color: color(neutral_30);
+	color: transparent;
+	text-shadow: 2px 2px 3px color(neutral_00, 0.8);
+	background-clip: text;
+
+	// margin-top: 1em;
 }
 .btns {
 	@include flex(sa, fe);

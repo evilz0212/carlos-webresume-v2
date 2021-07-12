@@ -1,9 +1,9 @@
 <template lang='pug'>
+goTop(dom=".infoCard")
 section
 	.profile
 		//- // TODO: 資源更新 - 個人照片
-		img(alt="Logo", src="@/assets/icons/Logo.svg")
-		//-  {{ profile.picture }}
+		img(alt="picture", :src="`${projectName}${profile.picture}`")
 		.content
 			.profession {{ profile.profession }}
 			.name {{ profile.name }}
@@ -12,10 +12,9 @@ section
 				.text {{ profile.description }}
 				span &lt/#[span.t code]>
 			.btns
-				button Download CV
-				//- {{ profile.link_CV }}
-				button to GitHub
-				//- {{ profile.link_GitHub }}
+				//- // TODO: 資源更新 - 平面履歷
+				a(:href="profile.link_CV", target="_blank") Download CV
+				a(:href="profile.link_GitHub", target="_blank") to GitHub
 	.detail
 		.btns
 			a.infomation.onScroll(href="#infomation") - Infomation
@@ -31,6 +30,7 @@ section
 import { inject, onMounted, watch, ref } from "vue";
 import * as p5 from "@/services/canvas";
 const { profile } = inject("datas");
+const projectName = import.meta.env.VITE_PROJECT_NAME;
 
 const scrollBlock = ref("infomation");
 const scrollChange = () => {
@@ -148,7 +148,7 @@ section {
 		@include flex(fs, fe);
 		flex: 1;
 
-		button {
+		a {
 			padding: 10px 40px;
 			margin-right: 20px;
 			border-radius: 50px;

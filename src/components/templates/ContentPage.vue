@@ -1,7 +1,6 @@
 <template lang='pug'>
 Header
 SideBar
-goTop
 .content
 	router-view
 </template>

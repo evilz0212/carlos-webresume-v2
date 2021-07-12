@@ -73,10 +73,13 @@ function drawCanvas(_p5) {
 	function drawStar() {
 		_p5.push()
 		_p5.translate(_p5.width / 2, _p5.height / 2)
+		_p5.rotate(90)
+
+		_p5.push()
 		_p5.imageMode(_p5.CENTER)
 		let sizeSwitch = window.innerWidth > 1440 ? 1 : 0 // 膨脹開關：平板效能較低會卡頓而關閉
-		let z = _p5.sin(_p5.frameCount / 300) * 15 * sizeSwitch // 膨脹係數：速度、幅度
-		_p5.rotate(_p5.frameCount / 200)
+		let z = _p5.sin(_p5.frameCount / 80) * 10 * sizeSwitch // 膨脹係數：速度、幅度
+		_p5.rotate(_p5.frameCount / 400)
 		_p5.image(
 			img_planet_center,
 			0,
@@ -84,6 +87,8 @@ function drawCanvas(_p5) {
 			track.r_inside - track.space - z,
 			track.r_inside - track.space - z
 		)
+		_p5.pop()
+
 		_p5.pop()
 	}
 

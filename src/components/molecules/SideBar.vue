@@ -1,6 +1,6 @@
 <template lang='pug'>
 .sideBar
-	//- // TODO: 資源更新 - 連結 & CV檔案
+	//- // TODO: 資源新增 - 連結 & CV檔案
 	.icon Mail
 	//- {{ profile.link_Email }}
 	.icon IG
