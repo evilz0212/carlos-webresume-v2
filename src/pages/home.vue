@@ -3,7 +3,7 @@ SideBar
 
 .emptyCard
 	//- // TODO: 資源更新 - Logo
-	img(alt="Vue logo", src="@/assets/icons/logo.png")
+	img(alt="Logo", src="@/assets/icons/Logo.svg")
 	p.name {{ profile.name }}
 	p.slogan {{ profile.slogan }}
 

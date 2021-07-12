@@ -2,7 +2,7 @@
 .header
 	router-link(:to="{ name: 'home' }", custom, v-slot="{ navigate }")
 		button.icon(role="link", @click="navigate") 
-			img(alt="Vue logo", src="@/assets/icons/logo.png")
+			img(alt="Logo", src="@/assets/icons/Logo.svg")
 			.name Carlos
 
 	.btns

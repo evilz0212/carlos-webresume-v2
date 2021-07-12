@@ -2,7 +2,7 @@
 section
 	.profile
 		//- // TODO: 資源更新 - 個人照片
-		img(alt="Vue logo", src="@/assets/icons/logo.png")
+		img(alt="Logo", src="@/assets/icons/Logo.svg")
 		//-  {{ profile.picture }}
 		.content
 			.profession {{ profile.profession }}
