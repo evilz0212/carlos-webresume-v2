@@ -49,7 +49,7 @@ onMounted(() => {});
 
 	background-color: color(neutral_00);
 	box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.05);
-	border-radius: 30px;
+	border-radius: 15px;
 
 	overflow: hidden;
 }

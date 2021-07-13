@@ -1,14 +1,13 @@
 <template lang='pug'>
 .sideBar
-	//- // TODO: 資源新增 - 連結 & CV檔案
-	.icon Mail
-	//- {{ profile.link_Email }}
-	.icon IG
-	//- {{ profile.link_IG }}
-	.icon GitHub
-	//- {{ profile.link_GitHub }}
-	.icon CV
-	//- {{ profile.link_CV }}
+	a.icon(:href="profile.link_Email", target="_blank")
+		img(alt="Email", src="@/assets/icons/mail.svg")
+	a.icon(:href="profile.link_IG", target="_blank")
+		img(alt="IG", src="@/assets/icons/instagram.svg")
+	a.icon(:href="profile.link_GitHub", target="_blank")
+		img(alt="GitHub", src="@/assets/icons/github.svg")
+	a.icon(:href="profile.link_CV", target="_blank")
+		img(alt="CV", src="@/assets/icons/cv.svg")
 </template>
 
 <script setup lang='ts'>
@@ -28,7 +27,7 @@ const { profile } = inject("datas");
 		color(linear_01_01),
 		color(linear_01_02)
 	);
-	padding: 0px 10px;
+	padding: 0px 15px;
 	border-radius: 15px 0px 0px 15px;
 
 	:hover {
@@ -37,8 +36,9 @@ const { profile } = inject("datas");
 }
 .icon {
 	@include flex(c, c);
-	padding: 20px 0px;
-	border-bottom: 1px solid color(basic_black, 0.1);
+	@include size(30px);
+	padding: 30px 0px;
+	border-bottom: 1px solid color(basic_white, 0.2);
 	&:last-child {
 		border: 0px;
 	}

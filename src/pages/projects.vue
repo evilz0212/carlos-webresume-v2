@@ -89,14 +89,20 @@ h2 {
 	@include flex(sb, fs);
 	flex-flow: wrap;
 	padding: 60px;
+	@include pad() {
+		padding: 40px;
+	}
 }
 .card {
 	position: relative;
 	margin-bottom: 60px;
+	@include pad() {
+		margin-bottom: 40px;
+	}
 	width: 45%;
 	padding-top: 22.5%;
 
-	border-radius: 20px;
+	border-radius: 12px;
 	background-color: color(neutral_00);
 	box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
 	overflow: hidden;

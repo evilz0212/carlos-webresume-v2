@@ -98,14 +98,13 @@ section {
 }
 .profile {
 	@include flex(fs, c);
-	min-height: 400px;
 	background-color: color(gold_10, 0.95);
 	padding: 40px;
 
 	img {
-		margin-left: 200px;
+		margin-left: 10vw;
 		margin-right: 40px;
-		@include size(300px);
+		@include size(25vh);
 		border-radius: 100%;
 		object-fit: fill;
 		box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.05);
@@ -152,8 +151,9 @@ section {
 			padding: 10px 40px;
 			margin-right: 20px;
 			border-radius: 50px;
-			background-color: color(gold_40, 0.2);
+
 			color: color(gold_60);
+			background-color: color(gold_40, 0.2);
 
 			&:hover {
 				background-color: color(gold_40, 0.6);
@@ -179,6 +179,7 @@ section {
 			font-size: 18px;
 			font-weight: 400;
 			color: color(gold_30);
+			text-shadow: 0px 0px 1px color(neutral_00, 0.6);
 			line-height: 1.5;
 
 			transition: all 0.2s ease-in-out;
@@ -211,8 +212,6 @@ section {
 	#experience,
 	#skills {
 		margin: 10px;
-
-		// background-color: color(neutral_00, 0.2);
 	}
 }
 </style>

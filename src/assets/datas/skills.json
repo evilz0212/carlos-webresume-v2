@@ -1,7 +1,7 @@
 [
 	{
 		"title": "前端開發",
-		"description": "熟悉前端框架 Vue 3、自訂 Vite \\ Webpack 編譯打包。依據模組化設計，採用 SASS 拆分引入共用樣式、制定 API 規格，協助團隊制定版本控制規範。",
+		"description": "熟悉前端框架 Vue 3、自訂 Vite \\ Webpack 編譯打包。\n依據模組化設計，採用 SASS 拆分引入共用樣式、制定 API 規格，協助團隊制定版本控制規範。",
 		"tags": [
 			"Vue 3",
 			"Vite",
@@ -34,7 +34,7 @@
 	},
 	{
 		"title": "後端開發",
-		"description": "可獨立在雲端主機上運用 Docker 快速建置伺服器、資料庫等環境，對可能的資安漏洞進行更新維護。",
+		"description": "可獨立在雲端主機上運用 Docker 快速建置伺服器、資料庫等環境。\n對可能的資安漏洞進行更新維護。",
 		"tags": [
 			"Laravel",
 			"PHP",
@@ -50,7 +50,7 @@
 	},
 	{
 		"title": "ＵＩ設計",
-		"description": "瞭解設計系統與原子設計，且熟悉設計軟體操作，能協助設計師規劃頁面動線、基礎版型、介面規劃、拆分組件與共用樣式等細節。",
+		"description": "瞭解設計系統與原子設計，且熟悉設計軟體操作。\n能協助設計師規劃頁面動線、基礎版型、介面規劃、拆分組件與共用樣式等細節。",
 		"tags": [
 			"UI Flow",
 			"Wireframe",
@@ -64,7 +64,7 @@
 	},
 	{
 		"title": "資訊管理",
-		"description": "熟悉資訊統整，協助團隊建立知識庫存放相關資源、經驗筆記、更新資訊等，並協助制定管理規範。參與過產品前期規劃，負責內容包含 User Story Map, Functional map, Sitemap, Flow Chart, UI Flow 等。",
+		"description": "熟悉資訊統整，協助團隊建立知識庫存放相關資源、經驗筆記、更新資訊等，並協助制定管理規範。\n參與過產品前期規劃，負責內容包含 User Story Map, Functional map, Sitemap, Flow Chart, UI Flow 等。",
 		"tags": [
 			"User Story Map",
 			"Functional map",

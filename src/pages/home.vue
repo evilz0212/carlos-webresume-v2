@@ -39,6 +39,9 @@ onMounted(() => {
 	position: fixed;
 	top: pos(sidebar_margin_top);
 	left: 100vw * 0.618 * 0.5 * 0.5;
+	@include pad() {
+		left: 100vw * 0.618 * 0.5 * 0.4;
+	}
 	@include size(521px, pos(emptyCard_hight));
 
 	@include flex(fs, c, col);
@@ -57,6 +60,7 @@ img {
 	color: transparent;
 	text-shadow: 2px 2px 3px color(neutral_00, 0.6);
 	background-clip: text;
+	-webkit-background-clip: text;
 
 	margin-top: 1em;
 }
@@ -67,6 +71,7 @@ img {
 	color: transparent;
 	text-shadow: 2px 2px 3px color(neutral_00, 0.8);
 	background-clip: text;
+	-webkit-background-clip: text;
 
 	// margin-top: 1em;
 }

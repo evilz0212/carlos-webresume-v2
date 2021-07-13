@@ -45,6 +45,7 @@
 		);
 		color: transparent;
 		background-clip: text;
+		-webkit-background-clip: text;
 	}
 }
 .page {
