@@ -2,7 +2,6 @@
 teleport(to="#model")
 	.popAlert(@click.self="closeAlert()")
 		.card 
-			//- // TODO: 資源更新 - project 照片
 			a.picture(:href="data.link", target="_blank")
 				img(:alt="data.name", :src="`${projectName}${data.picture}`")
 			.content
