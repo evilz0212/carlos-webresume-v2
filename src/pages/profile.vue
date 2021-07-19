@@ -2,7 +2,6 @@
 goTop(dom=".infoCard")
 section
 	.profile
-		//- // TODO: 資源更新 - 個人照片
 		img(alt="picture", :src="`${projectName}${profile.picture}`")
 		.content
 			.profession {{ profile.profession }}
@@ -106,7 +105,7 @@ section {
 		margin-right: 40px;
 		@include size(25vh);
 		border-radius: 100%;
-		object-fit: fill;
+		object-fit: cover;
 		box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.05);
 	}
 	.content {
